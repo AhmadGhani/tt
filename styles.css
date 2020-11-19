@@ -1,9 +1,28 @@
-@keyframes toOne{
-    from{
-        opacity: 0;
+@keyframes obstacleToLeft{
+    0%{
+        left: 105vw;
     }
-    to{
-        opacity: 1;
+
+    100%{
+        left: -30px;
+    }
+}
+
+@keyframes jump{
+    0%{
+        top: 280px;
+    }
+
+    15%{
+        top: 220px;
+    }
+
+    70%{
+        top: 220px;
+    }
+
+    100%{
+        top: 280px;
     }
 }
 
@@ -14,76 +33,60 @@
 }
 
 html{
-    padding: 2rem 1rem;
-    background-color: #f1f3f8;
-    font-weight: 400;
+    font-size: 62.5%;
+    overflow: hidden;
 }
 
 body{
-    min-height: 100vh;
-    color: #212121;
-    font-family: 'Lato', sans-serif;
+    height: 100vh;
+    background-color: #424744;
 }
 
-.main-heading{
-    font-family: 'Fugaz One', cursive;
+.game__box{
+    background-color: #141414;
+    width: 100vw;
+    height: 350px;
+    position: relative;
+    box-shadow: 5px 5px 20px;
+}
+
+.game__box h2{
     text-align: center;
-    text-decoration: underline;
+    color: #b8bab9;
+    font-size: 3rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
 }
 
-table{
-    margin-bottom: 2.5rem;
-    border-collapse: collapse;
-    width: 100%;
-    text-align: left;
+.score{
+    font-size: 2rem;
+    color: #b8bab9;
 }
 
-table .date{
-    text-align: center;
-    font-size: 1.3rem;
-    font-family: 'Fugaz One', cursive;
+.player{
+    width: 30px;
+    height: 70px;
+    background-color: aqua;
+    position: absolute;
+    top: 280px;
+    left: 10px;
 }
 
-.date span{
-    color: #000000;
-    animation: .7s toOne infinite;
-    -moz-animation-direction: alternate;
-    animation-direction: alternate;
+.jumpAnim{
+    animation: jump .7s;
 }
 
-.headings-row{
-    font-size: 1.1rem;
-    font-weight: 900;
+.obstacle{
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    position: absolute;
+    top: 320px;
+    left: 95vw;
 }
 
-td,th{
-    border: 1px solid #637373;
-    padding: 8px;
-}
-
-tr:nth-child(even){
-    background-color: #a3d2ca;
-}
-
-tr:nth-child(odd){
-    background-color: #5eaaa8;
-}
-
-.today .date th{
-    width: 100%;
-}
-
-.credits{
-    padding: 2rem 0;
-    text-align: center;
-}
-
-.credits .name{
-    color: #212121;
-    font-family: 'Fugaz One', cursive;
-    font-weight: 300;
-}
-
-.credits span{
-    color: #f70f1a;
+.obstacleAnim{
+    animation: obstacleToLeft 1.2s infinite linear;
 }
